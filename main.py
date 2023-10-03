@@ -1,3 +1,5 @@
+from identifier import identifier
+
 KEYWORD = 'keyword'
 IDENTIFIER = 'identifier'
 OPERATOR = 'operator'
