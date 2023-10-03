@@ -29,6 +29,10 @@ def lexer(input):
 
 if __name__ == '__main__':
 
+    tests = ["3213231", "_abc123", "bsaf321_", "$123"]
+    for test in tests:
+        print(identifier(test), test)
+
     with open('input_scode.txt', 'r') as file:
         input_code = file.read()
 

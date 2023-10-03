@@ -18,21 +18,28 @@ def is_identifier_char(char):
     return is_letter(char) or is_digit(char) or is_underscore(char)
 
 
-# Check if is valid variable name or digit
+# Check if is valid variable or digit
 def identifier(input_str):
     state = 0
-    identifier = ""
-
     for char in input_str:
         if state == 0:
-            if is_identifier_start(char):
+            if is_digit(char):
                 state = 1
-                identifier += char
+            elif is_identifier_start(char):
+                state = 2
             else:
-                return None  # Invalid input
+                return None
         elif state == 1:
-            if is_identifier_char(char):
-                identifier += char
+            if is_digit(char):
+                continue
             else:
-                return identifier  # Identifier recognized
-    return identifier
+                return None
+        elif state == 2:
+            if is_identifier_char(char):
+                continue
+            else:
+                return None
+    if state == 1:
+        return "INTEGER"
+    elif state == 2:
+        return "IDENTIFIER"
