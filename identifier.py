@@ -39,7 +39,8 @@ def identifier(input_str):
                 continue
             else:
                 return None
-    if state == 1:
-        return "INTEGER"
-    elif state == 2:
-        return "IDENTIFIER"
+
+    if state == 1:  # integer
+        return True
+    elif state == 2:  # identifier
+        return True
